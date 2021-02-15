@@ -6,6 +6,18 @@ import { ForecastFourtyEight } from '../cards';
 import { ForeCastSlider } from '../forecastslider';
 import { Container, Row, Col } from 'react-bootstrap';
  
+// class App extends React.Component {
+//     constructor(props) {
+//         super(props);
+//     }
+
+//     render() {
+//         return (<button onClick={() => (console.log('clicked!!!'))}>Click Me</button>)
+//     }
+// }
+
+// export default App;
+
 export const App = () => {
     return  <Container>
                 <Nav />
