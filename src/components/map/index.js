@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import mapico from './map-icons/mapIcon.png';
 import 'leaflet/dist/leaflet.css';
+
+const iconMarker = new L.Icon({
+  iconUrl: mapico,
+  iconSize: [50,50],
+})
 
 export const Map = () => {
     function LocationMarker() {
@@ -16,7 +23,7 @@ export const Map = () => {
         })
       
         return position === null ? null : (
-          <Marker position={position}>
+          <Marker position={position} icon={iconMarker}>
             <Popup>You are here</Popup>
           </Marker>
         )
