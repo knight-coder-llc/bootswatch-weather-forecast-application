@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const webpack = require('webpack'); //to access built-in plugins
 
 module.exports = {
-    entry: path.resolve(__dirname, './src/index.js'),
+    entry: ["@babel/polyfill",path.resolve(__dirname, './src/index.js')],
     output: {
         path: path.resolve(__dirname, './build'),
         filename: 'app.js'

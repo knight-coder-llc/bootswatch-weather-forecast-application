@@ -1,29 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { connect } from 'react-redux';
 import { Map } from '../map';
 import { Nav } from '../nav';
 import { Footer } from '../footer';
 import { ForecastFourtyEight } from '../cards';
 import { ForeCastSlider } from '../forecastslider';
 import { Container, Row, Col } from 'react-bootstrap';
- 
-// class App extends React.Component {
-//     constructor(props) {
-//         super(props);
-//     }
+import { loadForecast } from '../../redux/actions';
 
-//     render() {
-//         return (<button onClick={() => (console.log('clicked!!!'))}>Click Me</button>)
-//     }
-// }
-
-// export default App;
-
-export const App = () => {
+const App = (props) => {
+    
     return  <Container>
                 <Nav />
                 <Row className="mt-5">
                     <Col>
                         <h2 className="mb-5" align="center">48 hour forecast</h2>
+                        <button onClick={() => (props.loadForecast())}>Click</button>
                         <ForecastFourtyEight />
                     </Col>
                     
@@ -42,3 +34,17 @@ export const App = () => {
                 <Footer />
             </Container>
 }
+
+const mapStateToProps = (state) => ({
+    forecast: state.forecast,
+    client: state.client
+})
+
+const mapDispatchToProps = {
+    loadForecast
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App)
